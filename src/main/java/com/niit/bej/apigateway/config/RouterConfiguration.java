@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Configuration;
 public class RouterConfiguration {
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
-        return builder.routes().build();
-//                .route(p -> p.path("/userauth/**").uri("lb://eurekaAuthClient"))
-//                .route(p -> p.path("/usertodo/**").uri("lb://eurekaToDoClient"))
+        return builder.routes()
+                .route(p -> p.path("/userauth/**").uri("localhost://8084"))
+                .route(p -> p.path("/adminbook/**").uri("localhost://8081"))
 //                .route(p -> p.path("/usernotification/**").uri("lb://notificationserverclient"))
-
+                .build();
 
     }
 }
